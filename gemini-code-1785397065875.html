@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biodata Saya</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary: #38bdf8;
+      --accent: #818cf8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: var(--card-bg);
+      max-width: 600px;
+      width: 100%;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .profile-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #fff;
+      margin: 0 auto 16px auto;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+    }
+
+    .profile-header h1 {
+      font-size: 1.8rem;
+      margin-bottom: 6px;
+    }
+
+    .profile-header p {
+      color: var(--primary);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      margin-top: 24px;
+    }
+
+    .bio-info {
+      list-style: none;
+    }
+
+    .bio-info li {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .bio-info span.label {
+      color: var(--text-muted);
+    }
+
+    .bio-info span.value {
+      font-weight: 500;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      background-color: rgba(56, 189, 248, 0.1);
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    .links {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .btn {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #0f172a;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    .btn-secondary {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="profile-header">
+      <!-- Inisial foto / ganti dengan <img src="foto.jpg" class="avatar"> -->
+      <div class="avatar">YN</div>
+      <h1>Nama Anda</h1>
+      <p>Web Developer & Learner</p>
+    </div>
+
+    <h2 class="section-title">Informasi Pribadi</h2>
+    <ul class="bio-info">
+      <li><span class="label">Pendidikan</span><span class="value">Teknik Informatika</span></li>
+      <li><span class="label">Lokasi</span><span class="value">Indonesia</span></li>
+      <li><span class="label">Status</span><span class="value">Open to Work</span></li>
+    </ul>
+
+    <h2 class="section-title">Keahlian</h2>
+    <div class="skills">
+      <span class="skill-tag">HTML5 & CSS3</span>
+      <span class="skill-tag">JavaScript</span>
+      <span class="skill-tag">Git & GitHub</span>
+      <span class="skill-tag">UI/UX Basic</span>
+    </div>
+
+    <h2 class="section-title">Kontak & Media Sosial</h2>
+    <div class="links">
+      <a href="https://github.com/username" target="_blank" class="btn btn-primary">GitHub</a>
+      <a href="https://linkedin.com/in/username" target="_blank" class="btn btn-secondary">LinkedIn</a>
+    </div>
+  </div>
+
+</body>
+</html>
