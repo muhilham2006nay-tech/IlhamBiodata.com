@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Biodata Saya</title>
+  <title>Muhamad Ilham Saputra - Portfolio</title>
   <style>
     :root {
       --bg: #0f172a;
       --card-bg: #1e293b;
+      --card-hover: #334155;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --primary: #38bdf8;
       --accent: #818cf8;
+      --border: rgba(255, 255, 255, 0.08);
     }
 
     * {
@@ -28,22 +30,26 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      padding: 24px 16px;
+      line-height: 1.6;
     }
 
     .container {
       background-color: var(--card-bg);
-      max-width: 600px;
+      max-width: 800px;
       width: 100%;
-      border-radius: 16px;
-      padding: 32px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border);
     }
 
+    /* Header Profile */
     .profile-header {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
     }
 
     .avatar {
@@ -54,53 +60,128 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #fff;
-      margin: 0 auto 16px auto;
-      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 auto 20px auto;
+      box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
     }
 
     .profile-header h1 {
-      font-size: 1.8rem;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
       margin-bottom: 6px;
     }
 
-    .profile-header p {
+    .profile-header .subtitle {
       color: var(--primary);
-      font-size: 1rem;
-      font-weight: 500;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 8px;
     }
 
-    .section-title {
-      font-size: 1.1rem;
+    .profile-header .location {
       color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* About Section */
+    .about-box {
+      background-color: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 32px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      text-align: justify;
+    }
+
+    /* Section Headings */
+    .section-title {
+      font-size: 1.15rem;
+      color: var(--primary);
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-      margin-top: 24px;
+      letter-spacing: 1.2px;
+      margin-bottom: 16px;
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .bio-info {
-      list-style: none;
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background-color: var(--border);
     }
 
-    .bio-info li {
+    /* Timeline Items (Education, Experience) */
+    .item-card {
+      background-color: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .item-card:hover {
+      background-color: var(--card-hover);
+      transform: translateY(-2px);
+    }
+
+    .item-header {
       display: flex;
       justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      align-items: flex-start;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+      gap: 4px;
     }
 
-    .bio-info span.label {
-      color: var(--text-muted);
+    .item-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-main);
     }
 
-    .bio-info span.value {
+    .item-date {
+      font-size: 0.85rem;
+      color: var(--accent);
       font-weight: 500;
     }
 
-    .skills {
+    .item-sub {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+
+    .item-list {
+      padding-left: 18px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .item-list li {
+      margin-bottom: 4px;
+    }
+
+    /* Skills Badges */
+    .skills-group {
+      margin-bottom: 16px;
+    }
+
+    .skills-group-title {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .skills-container {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
@@ -111,24 +192,36 @@
       color: var(--primary);
       padding: 6px 14px;
       border-radius: 20px;
-      font-size: 0.875rem;
+      font-size: 0.85rem;
       border: 1px solid rgba(56, 189, 248, 0.2);
+      font-weight: 500;
     }
 
-    .links {
-      display: flex;
+    .skill-tag.soft {
+      background-color: rgba(129, 140, 248, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(129, 140, 248, 0.2);
+    }
+
+    /* Action / Contact Buttons */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 12px;
-      margin-top: 12px;
+      margin-top: 16px;
     }
 
     .btn {
-      flex: 1;
-      text-align: center;
-      padding: 10px;
-      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border-radius: 10px;
       text-decoration: none;
       font-weight: 600;
+      font-size: 0.9rem;
       transition: all 0.2s ease;
+      text-align: center;
     }
 
     .btn-primary {
@@ -138,49 +231,149 @@
 
     .btn-primary:hover {
       opacity: 0.9;
+      transform: translateY(-2px);
     }
 
     .btn-secondary {
       background-color: rgba(255, 255, 255, 0.05);
       color: var(--text-main);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border);
     }
 
     .btn-secondary:hover {
       background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 24px 20px;
+      }
+      .profile-header h1 {
+        font-size: 1.6rem;
+      }
+      .item-header {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
 
   <div class="container">
+    
+    <!-- Profile Header -->
     <div class="profile-header">
-      <!-- Inisial foto / ganti dengan <img src="foto.jpg" class="avatar"> -->
-      <div class="avatar">YN</div>
-      <h1>Nama Anda</h1>
-      <p>Web Developer & Learner</p>
+      <div class="avatar">MIS</div>
+      <h1>Muhamad Ilham Saputra</h1>
+      <p class="subtitle">Electrical Engineering Technology Student</p>
+      <p class="location">📍 Klaten, Jawa Tengah | Universitas Gadjah Mada</p>
     </div>
 
-    <h2 class="section-title">Informasi Pribadi</h2>
-    <ul class="bio-info">
-      <li><span class="label">Pendidikan</span><span class="value">Teknik Informatika</span></li>
-      <li><span class="label">Lokasi</span><span class="value">Indonesia</span></li>
-      <li><span class="label">Status</span><span class="value">Open to Work</span></li>
-    </ul>
+    <!-- About Me -->
+    <div class="about-box">
+      Motivated Electrical Engineering Technology student at Universitas Gadjah Mada with strong interest in applied engineering, technology development, and problem solving. Skilled in collaboration, adaptability, and technical execution. Actively seeking opportunities to develop hands-on technical experience and contribute to engineering-related projects.
+    </div>
 
+    <!-- Education -->
+    <h2 class="section-title">Pendidikan</h2>
+    <div class="item-card">
+      <div class="item-header">
+        <span class="item-title">Universitas Gadjah Mada</span>
+        <span class="item-date">2024 - Sekarang</span>
+      </div>
+      <p class="item-sub">Electrical Engineering Technology | <strong>IPK: 3.56</strong></p>
+    </div>
+
+    <div class="item-card">
+      <div class="item-header">
+        <span class="item-title">SMA Negeri 1 Cawas</span>
+        <span class="item-date">2021 - 2024</span>
+      </div>
+      <p class="item-sub">MIPA | <strong>Nilai Rata-rata: 89.45</strong></p>
+    </div>
+
+    <!-- Organizational Experience -->
+    <h2 class="section-title">Pengalaman Organisasi</h2>
+    <div class="item-card">
+      <div class="item-header">
+        <span class="item-title">Staff, Divisi Ilmu Pengetahuan dan Teknologi (IPTEK)</span>
+        <span class="item-date">2024 - Sekarang</span>
+      </div>
+      <p class="item-sub">Himpunan Mahasiswa Teknik Elektro UGM</p>
+      <ul class="item-list">
+        <li>Menyelenggarakan sesi pengajaran IPTEK untuk membantu persiapan ujian mahasiswa.</li>
+        <li>Membuat dan mengelola papan buletin IPTEK.</li>
+      </ul>
+    </div>
+
+    <!-- Committee Experience -->
+    <h2 class="section-title">Pengalaman Kepanitiaan</h2>
+    <div class="item-card">
+      <div class="item-header">
+        <span class="item-title">Koordinator Divisi Perlengkapan</span>
+        <span class="item-date">2025</span>
+      </div>
+      <p class="item-sub">Pionir Permadani 2025</p>
+      <ul class="item-list">
+        <li>Mengkoordinasikan kebutuhan perlengkapan antar divisi.</li>
+        <li>Bertanggung jawab memastikan seluruh peralatan dan bahan kegiatan siap dan lengkap.</li>
+      </ul>
+    </div>
+
+    <div class="item-card">
+      <div class="item-header">
+        <span class="item-title">Staff Hubungan Masyarakat (Humas)</span>
+        <span class="item-date">2025</span>
+      </div>
+      <p class="item-sub">Temu Alumni 2025 - Sekolah Vokasi UGM</p>
+      <ul class="item-list">
+        <li>Mendistribusikan undangan acara kepada dosen dan mengonfirmasi kehadiran.</li>
+        <li>Membantu kelancaran alur komunikasi antara panitia dan tamu undangan.</li>
+      </ul>
+    </div>
+
+    <div class="item-card">
+      <div class="item-header">
+        <span class="item-title">Staff Logistik</span>
+        <span class="item-date">2025</span>
+      </div>
+      <p class="item-sub">TGES DTEDI 2025 - Sekolah Vokasi UGM</p>
+      <ul class="item-list">
+        <li>Memastikan ketersediaan dan kelengkapan logistik serta konsumsi acara.</li>
+        <li>Mengkoordinasikan kebutuhan logistik dengan divisi terkait.</li>
+      </ul>
+    </div>
+
+    <!-- Skills -->
     <h2 class="section-title">Keahlian</h2>
-    <div class="skills">
-      <span class="skill-tag">HTML5 & CSS3</span>
-      <span class="skill-tag">JavaScript</span>
-      <span class="skill-tag">Git & GitHub</span>
-      <span class="skill-tag">UI/UX Basic</span>
+    <div class="skills-group">
+      <p class="skills-group-title">Hard Skills</p>
+      <div class="skills-container">
+        <span class="skill-tag">Canva</span>
+        <span class="skill-tag">AutoCAD</span>
+        <span class="skill-tag">Microsoft Excel</span>
+        <span class="skill-tag">Microsoft Word</span>
+      </div>
+    </div>
+    <div class="skills-group">
+      <p class="skills-group-title">Soft Skills</p>
+      <div class="skills-container">
+        <span class="skill-tag soft">Problem Solving</span>
+        <span class="skill-tag soft">Adaptability</span>
+        <span class="skill-tag soft">Teamwork</span>
+        <span class="skill-tag soft">Communication</span>
+      </div>
     </div>
 
+    <!-- Contact & Links -->
     <h2 class="section-title">Kontak & Media Sosial</h2>
-    <div class="links">
-      <a href="https://github.com/username" target="_blank" class="btn btn-primary">GitHub</a>
-      <a href="https://linkedin.com/in/username" target="_blank" class="btn btn-secondary">LinkedIn</a>
+    <div class="links-grid">
+      <a href="mailto:muhilham2006nay@gmail.com" class="btn btn-primary">✉️ Email Saya</a>
+      <a href="https://linkedin.com/in/muhamad-ilham-saputra-bbb315316" target="_blank" class="btn btn-secondary">LinkedIn</a>
+      <a href="https://wa.me/6287735347799" target="_blank" class="btn btn-secondary">WhatsApp</a>
     </div>
+
   </div>
 
 </body>
