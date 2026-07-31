@@ -1,380 +1,334 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Muhamad Ilham Saputra - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: { 400: '#38bdf8', 500: '#0ea5e9' },
+            accent: { 400: '#818cf8', 500: '#6366f1' }
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    :root {
-      --bg: #0f172a;
-      --card-bg: #1e293b;
-      --card-hover: #334155;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --primary: #38bdf8;
-      --accent: #818cf8;
-      --border: rgba(255, 255, 255, 0.08);
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .glass-card {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    .gradient-bg {
+      background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
     }
-
-    body {
-      background-color: var(--bg);
-      color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 24px 16px;
-      line-height: 1.6;
-    }
-
-    .container {
-      background-color: var(--card-bg);
-      max-width: 800px;
-      width: 100%;
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-      border: 1px solid var(--border);
-    }
-
-    /* Header Profile */
-    .profile-header {
-      text-align: center;
-      margin-bottom: 36px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .avatar {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #0f172a;
-      margin: 0 auto 20px auto;
-      box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
-    }
-
-    .profile-header h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      margin-bottom: 6px;
-    }
-
-    .profile-header .subtitle {
-      color: var(--primary);
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .profile-header .location {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    /* About Section */
-    .about-box {
-      background-color: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 32px;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      text-align: justify;
-    }
-
-    /* Section Headings */
-    .section-title {
-      font-size: 1.15rem;
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      margin-bottom: 16px;
-      margin-top: 28px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .section-title::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background-color: var(--border);
-    }
-
-    /* Timeline Items (Education, Experience) */
-    .item-card {
-      background-color: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px 20px;
-      margin-bottom: 14px;
-      transition: transform 0.2s, background-color 0.2s;
-    }
-
-    .item-card:hover {
-      background-color: var(--card-hover);
-      transform: translateY(-2px);
-    }
-
-    .item-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 6px;
-      flex-wrap: wrap;
-      gap: 4px;
-    }
-
-    .item-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--text-main);
-    }
-
-    .item-date {
-      font-size: 0.85rem;
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .item-sub {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-bottom: 8px;
-    }
-
-    .item-list {
-      padding-left: 18px;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    .item-list li {
-      margin-bottom: 4px;
-    }
-
-    /* Skills Badges */
-    .skills-group {
-      margin-bottom: 16px;
-    }
-
-    .skills-group-title {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .skill-tag {
-      background-color: rgba(56, 189, 248, 0.1);
-      color: var(--primary);
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      font-weight: 500;
-    }
-
-    .skill-tag.soft {
-      background-color: rgba(129, 140, 248, 0.1);
-      color: var(--accent);
-      border: 1px solid rgba(129, 140, 248, 0.2);
-    }
-
-    /* Action / Contact Buttons */
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 16px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: all 0.2s ease;
-      text-align: center;
-    }
-
-    .btn-primary {
-      background-color: var(--primary);
-      color: #0f172a;
-    }
-
-    .btn-primary:hover {
-      opacity: 0.9;
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      background-color: rgba(255, 255, 255, 0.05);
-      color: var(--text-main);
-      border: 1px solid var(--border);
-    }
-
-    .btn-secondary:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        padding: 24px 20px;
-      }
-      .profile-header h1 {
-        font-size: 1.6rem;
-      }
-      .item-header {
-        flex-direction: column;
-      }
+    .grid-pattern {
+      background-image: radial-gradient(rgba(56, 189, 248, 0.1) 1px, transparent 1px);
+      background-size: 24px 24px;
     }
   </style>
 </head>
-<body>
+<body class="bg-slate-950 text-slate-100 min-h-screen relative grid-pattern overflow-x-hidden">
 
-  <div class="container">
-    
-    <!-- Profile Header -->
-    <div class="profile-header">
-      <div class="avatar">MIS</div>
-      <h1>Muhamad Ilham Saputra</h1>
-      <p class="subtitle">Electrical Engineering Technology Student</p>
-      <p class="location">📍 Klaten, Jawa Tengah | Universitas Gadjah Mada</p>
-    </div>
+  <!-- Ambient Glow Background -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-sky-500/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
-    <!-- About Me -->
-    <div class="about-box">
-      Motivated Electrical Engineering Technology student at Universitas Gadjah Mada with strong interest in applied engineering, technology development, and problem solving. Skilled in collaboration, adaptability, and technical execution. Actively seeking opportunities to develop hands-on technical experience and contribute to engineering-related projects.
-    </div>
-
-    <!-- Education -->
-    <h2 class="section-title">Pendidikan</h2>
-    <div class="item-card">
-      <div class="item-header">
-        <span class="item-title">Universitas Gadjah Mada</span>
-        <span class="item-date">2024 - Sekarang</span>
-      </div>
-      <p class="item-sub">Electrical Engineering Technology | <strong>IPK: 3.56</strong></p>
-    </div>
-
-    <div class="item-card">
-      <div class="item-header">
-        <span class="item-title">SMA Negeri 1 Cawas</span>
-        <span class="item-date">2021 - 2024</span>
-      </div>
-      <p class="item-sub">MIPA | <strong>Nilai Rata-rata: 89.45</strong></p>
-    </div>
-
-    <!-- Organizational Experience -->
-    <h2 class="section-title">Pengalaman Organisasi</h2>
-    <div class="item-card">
-      <div class="item-header">
-        <span class="item-title">Staff, Divisi Ilmu Pengetahuan dan Teknologi (IPTEK)</span>
-        <span class="item-date">2024 - Sekarang</span>
-      </div>
-      <p class="item-sub">Himpunan Mahasiswa Teknik Elektro UGM</p>
-      <ul class="item-list">
-        <li>Menyelenggarakan sesi pengajaran IPTEK untuk membantu persiapan ujian mahasiswa.</li>
-        <li>Membuat dan mengelola papan buletin IPTEK.</li>
-      </ul>
-    </div>
-
-    <!-- Committee Experience -->
-    <h2 class="section-title">Pengalaman Kepanitiaan</h2>
-    <div class="item-card">
-      <div class="item-header">
-        <span class="item-title">Koordinator Divisi Perlengkapan</span>
-        <span class="item-date">2025</span>
-      </div>
-      <p class="item-sub">Pionir Permadani 2025</p>
-      <ul class="item-list">
-        <li>Mengkoordinasikan kebutuhan perlengkapan antar divisi.</li>
-        <li>Bertanggung jawab memastikan seluruh peralatan dan bahan kegiatan siap dan lengkap.</li>
-      </ul>
-    </div>
-
-    <div class="item-card">
-      <div class="item-header">
-        <span class="item-title">Staff Hubungan Masyarakat (Humas)</span>
-        <span class="item-date">2025</span>
-      </div>
-      <p class="item-sub">Temu Alumni 2025 - Sekolah Vokasi UGM</p>
-      <ul class="item-list">
-        <li>Mendistribusikan undangan acara kepada dosen dan mengonfirmasi kehadiran.</li>
-        <li>Membantu kelancaran alur komunikasi antara panitia dan tamu undangan.</li>
-      </ul>
-    </div>
-
-    <div class="item-card">
-      <div class="item-header">
-        <span class="item-title">Staff Logistik</span>
-        <span class="item-date">2025</span>
-      </div>
-      <p class="item-sub">TGES DTEDI 2025 - Sekolah Vokasi UGM</p>
-      <ul class="item-list">
-        <li>Memastikan ketersediaan dan kelengkapan logistik serta konsumsi acara.</li>
-        <li>Mengkoordinasikan kebutuhan logistik dengan divisi terkait.</li>
-      </ul>
-    </div>
-
-    <!-- Skills -->
-    <h2 class="section-title">Keahlian</h2>
-    <div class="skills-group">
-      <p class="skills-group-title">Hard Skills</p>
-      <div class="skills-container">
-        <span class="skill-tag">Canva</span>
-        <span class="skill-tag">AutoCAD</span>
-        <span class="skill-tag">Microsoft Excel</span>
-        <span class="skill-tag">Microsoft Word</span>
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 px-4 py-4 backdrop-blur-md bg-slate-950/60 border-b border-slate-800/50">
+    <div class="max-w-4xl mx-auto flex justify-between items-center">
+      <a href="#" class="font-bold text-lg tracking-tight flex items-center gap-2">
+        <span class="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center text-slate-950 font-black text-sm">MIS</span>
+        <span class="hidden sm:inline text-slate-200">Muhamad Ilham</span>
+      </a>
+      <div class="flex items-center gap-4 text-sm font-medium">
+        <a href="#about" class="hover:text-brand-400 transition-colors">Tentang</a>
+        <a href="#experience" class="hover:text-brand-400 transition-colors">Pengalaman</a>
+        <a href="#skills" class="hover:text-brand-400 transition-colors">Keahlian</a>
+        <a href="#contact" class="hover:text-brand-400 transition-colors">Kontak</a>
       </div>
     </div>
-    <div class="skills-group">
-      <p class="skills-group-title">Soft Skills</p>
-      <div class="skills-container">
-        <span class="skill-tag soft">Problem Solving</span>
-        <span class="skill-tag soft">Adaptability</span>
-        <span class="skill-tag soft">Teamwork</span>
-        <span class="skill-tag soft">Communication</span>
+  </nav>
+
+  <!-- Container Utama -->
+  <main class="max-w-4xl mx-auto px-4 pt-28 pb-16 space-y-12">
+
+    <!-- HERO SECTION -->
+    <section id="about" class="glass-card rounded-3xl p-8 sm:p-10 relative overflow-hidden shadow-2xl">
+      <div class="flex flex-col md:flex-row items-center gap-8 relative z-10">
+        <!-- Avatar -->
+        <div class="relative group">
+          <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-full gradient-bg p-1 shadow-lg shadow-sky-500/20">
+            <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-3xl font-black text-slate-100 group-hover:scale-95 transition-transform duration-300">
+              MIS
+            </div>
+          </div>
+          <span class="absolute bottom-2 right-2 w-5 h-5 bg-emerald-500 border-4 border-slate-900 rounded-full" title="Active Student"></span>
+        </div>
+
+        <!-- Detail Bio -->
+        <div class="text-center md:text-left space-y-3 flex-1">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-brand-400 text-xs font-semibold">
+            <i class="fa-solid fa-bolt text-xs"></i> Electrical Engineering Technology
+          </div>
+          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+            Muhamad Ilham Saputra
+          </h1>
+          <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+            Mahasiswa <strong class="text-slate-200">Teknik Elektro UGM</strong> yang berfokus pada rekayasa terapan, teknologi kelistrikan, serta pengaplikasian solusi teknis yang adaptif dan efisien.
+          </p>
+          
+          <div class="pt-2 flex flex-wrap justify-center md:justify-start gap-4 text-xs text-slate-400">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-brand-400"></i> Klaten / Yogyakarta</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-graduation-cap text-accent-400"></i> Universitas Gadjah Mada</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-star text-amber-400"></i> IPK 3.56</span>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- Contact & Links -->
-    <h2 class="section-title">Kontak & Media Sosial</h2>
-    <div class="links-grid">
-      <a href="mailto:muhilham2006nay@gmail.com" class="btn btn-primary">✉️ Email Saya</a>
-      <a href="https://linkedin.com/in/muhamad-ilham-saputra-bbb315316" target="_blank" class="btn btn-secondary">LinkedIn</a>
-      <a href="https://wa.me/6287735347799" target="_blank" class="btn btn-secondary">WhatsApp</a>
-    </div>
+      <!-- Action Buttons -->
+      <div class="mt-8 pt-6 border-t border-slate-800/80 flex flex-wrap gap-3 justify-center md:justify-start">
+        <a href="#contact" class="px-5 py-2.5 rounded-xl gradient-bg text-slate-950 font-bold text-sm hover:opacity-90 transition-all shadow-lg shadow-sky-500/25 flex items-center gap-2">
+          <i class="fa-solid fa-paper-plane"></i> Hubungi Saya
+        </a>
+        <a href="https://linkedin.com/in/muhamad-ilham-saputra-bbb315316" target="_blank" class="px-5 py-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-200 font-semibold text-sm transition-all border border-slate-700 flex items-center gap-2">
+          <i class="fa-brands fa-linkedin text-brand-400"></i> LinkedIn
+        </a>
+        <a href="mailto:muhilham2006nay@gmail.com" class="px-5 py-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-200 font-semibold text-sm transition-all border border-slate-700 flex items-center gap-2">
+          <i class="fa-solid fa-envelope text-accent-400"></i> Email
+        </a>
+      </div>
+    </section>
 
-  </div>
+    <!-- HIGHLIGHT STATS -->
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="glass-card p-5 rounded-2xl text-center border-l-4 border-l-sky-400">
+        <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">IPK Kumulatif</p>
+        <p class="text-2xl font-black text-white mt-1">3.56 <span class="text-xs font-normal text-slate-400">/ 4.00</span></p>
+      </div>
+      <div class="glass-card p-5 rounded-2xl text-center border-l-4 border-l-indigo-400">
+        <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">SMA Rata-Rata</p>
+        <p class="text-2xl font-black text-white mt-1">89.45</p>
+      </div>
+      <div class="glass-card p-5 rounded-2xl text-center border-l-4 border-l-emerald-400">
+        <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Organisasi</p>
+        <p class="text-2xl font-black text-white mt-1">HMTI UGM</p>
+      </div>
+      <div class="glass-card p-5 rounded-2xl text-center border-l-4 border-l-amber-400">
+        <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Kepanitiaan</p>
+        <p class="text-2xl font-black text-white mt-1">3+ Event</p>
+      </div>
+    </section>
+
+    <!-- PENDIDIKAN -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-brand-400">
+          <i class="fa-solid fa-graduation-cap text-lg"></i>
+        </div>
+        <h2 class="text-xl font-bold text-white tracking-tight">Riwayat Pendidikan</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <!-- UGM -->
+        <div class="glass-card p-6 rounded-2xl space-y-3 relative overflow-hidden group hover:border-sky-500/50 transition-colors">
+          <div class="flex justify-between items-start">
+            <div>
+              <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider">Perguruan Tinggi</span>
+              <h3 class="text-lg font-bold text-white mt-0.5">Universitas Gadjah Mada</h3>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 font-medium border border-slate-700">2024 - Sekarang</span>
+          </div>
+          <p class="text-sm text-slate-300">Teknologi Rekayasa Elektro (Electrical Engineering Technology)</p>
+          <div class="pt-2 flex items-center gap-2">
+            <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">IPK: 3.56</span>
+            <span class="text-xs text-slate-400">Sekolah Vokasi UGM</span>
+          </div>
+        </div>
+
+        <!-- SMA -->
+        <div class="glass-card p-6 rounded-2xl space-y-3 relative overflow-hidden group hover:border-indigo-500/50 transition-colors">
+          <div class="flex justify-between items-start">
+            <div>
+              <span class="text-xs font-semibold text-accent-400 uppercase tracking-wider">Sekolah Menengah Atas</span>
+              <h3 class="text-lg font-bold text-white mt-0.5">SMAN 1 Cawas</h3>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 font-medium border border-slate-700">2021 - 2024</span>
+          </div>
+          <p class="text-sm text-slate-300">Matematika & Ilmu Pengetahuan Alam (MIPA)</p>
+          <div class="pt-2 flex items-center gap-2">
+            <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-sky-500/10 text-brand-400 border border-sky-500/20">Nilai Rata-Rata: 89.45</span>
+            <span class="text-xs text-slate-400">Klaten, Jawa Tengah</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PENGALAMAN -->
+    <section id="experience" class="space-y-6">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-accent-400">
+          <i class="fa-solid fa-briefcase text-lg"></i>
+        </div>
+        <h2 class="text-xl font-bold text-white tracking-tight">Pengalaman Organisasi & Kepanitiaan</h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- HMTI -->
+        <div class="glass-card p-6 rounded-2xl space-y-3 hover:border-slate-700 transition-all">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+            <div>
+              <h3 class="text-base font-bold text-white">Staff Divisi IPTEK</h3>
+              <p class="text-xs text-brand-400 font-medium">Himpunan Mahasiswa Teknik Elektro UGM</p>
+            </div>
+            <span class="text-xs px-3 py-1 rounded-full bg-sky-500/10 text-brand-400 border border-sky-500/20 font-medium self-start sm:self-auto">2024 - Sekarang</span>
+          </div>
+          <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside pt-1">
+            <li>Menyelenggarakan sesi pengajaran IPTEK untuk membantu persiapan ujian akademis mahasiswa.</li>
+            <li>Membuat dan mengelola papan buletin informasi IPTEK secara berkala.</li>
+          </ul>
+        </div>
+
+        <!-- Pionir Permadani -->
+        <div class="glass-card p-6 rounded-2xl space-y-3 hover:border-slate-700 transition-all">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+            <div>
+              <h3 class="text-base font-bold text-white">Koordinator Divisi Perlengkapan</h3>
+              <p class="text-xs text-accent-400 font-medium">Pionir Permadani 2025</p>
+            </div>
+            <span class="text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700 font-medium self-start sm:self-auto">2025</span>
+          </div>
+          <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside pt-1">
+            <li>Mengkoordinasikan dan memetakan seluruh kebutuhan logistik serta peralatan antar divisi.</li>
+            <li>Memastikan kelengkapan teknis dan operasional berjalan tanpa hambatan selama pelaksanaan event.</li>
+          </ul>
+        </div>
+
+        <!-- Temu Alumni -->
+        <div class="glass-card p-6 rounded-2xl space-y-3 hover:border-slate-700 transition-all">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+            <div>
+              <h3 class="text-base font-bold text-white">Staff Public Relations (Humas)</h3>
+              <p class="text-xs text-brand-400 font-medium">Temu Alumni 2025 - Sekolah Vokasi UGM</p>
+            </div>
+            <span class="text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700 font-medium self-start sm:self-auto">2025</span>
+          </div>
+          <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside pt-1">
+            <li>Mendistribusikan undangan resmi ke jajaran dosen serta mengonfirmasi kehadiran tamu VVIP.</li>
+            <li>Mengelola alur komunikasi internal panitia dengan eksternal secara profesional.</li>
+          </ul>
+        </div>
+
+        <!-- TGES DTEDI -->
+        <div class="glass-card p-6 rounded-2xl space-y-3 hover:border-slate-700 transition-all">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+            <div>
+              <h3 class="text-base font-bold text-white">Staff Logistik</h3>
+              <p class="text-xs text-accent-400 font-medium">TGES DTEDI 2025 - Sekolah Vokasi UGM</p>
+            </div>
+            <span class="text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700 font-medium self-start sm:self-auto">2025</span>
+          </div>
+          <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside pt-1">
+            <li>Memastikan ketersediaan dan distribusi konsumsi serta perlengkapan teknis acara.</li>
+            <li>Melakukan koordinasi intensif dengan divisi operasional untuk menjaga efisiensi acara.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEAHLIAN -->
+    <section id="skills" class="space-y-6">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+          <i class="fa-solid fa-code text-lg"></i>
+        </div>
+        <h2 class="text-xl font-bold text-white tracking-tight">Keahlian & Kompetensi</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Hard Skills -->
+        <div class="glass-card p-6 rounded-2xl space-y-4">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-brand-400 flex items-center gap-2">
+            <i class="fa-solid fa-laptop-code"></i> Technical / Hard Skills
+          </h3>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60 flex items-center gap-3">
+              <i class="fa-solid fa-pen-nib text-brand-400 text-lg"></i>
+              <span class="text-sm font-medium text-slate-200">Canva</span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60 flex items-center gap-3">
+              <i class="fa-solid fa-compass-drafting text-accent-400 text-lg"></i>
+              <span class="text-sm font-medium text-slate-200">AutoCAD</span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60 flex items-center gap-3">
+              <i class="fa-solid fa-file-excel text-emerald-400 text-lg"></i>
+              <span class="text-sm font-medium text-slate-200">Microsoft Excel</span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60 flex items-center gap-3">
+              <i class="fa-solid fa-file-word text-blue-400 text-lg"></i>
+              <span class="text-sm font-medium text-slate-200">Microsoft Word</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="glass-card p-6 rounded-2xl space-y-4">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-accent-400 flex items-center gap-2">
+            <i class="fa-solid fa-user-check"></i> Soft Skills
+          </h3>
+          <div class="flex flex-wrap gap-2 pt-1">
+            <span class="px-3.5 py-2 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-accent-300 text-sm font-medium flex items-center gap-2">
+              <i class="fa-solid fa-puzzle-piece text-xs"></i> Problem Solving
+            </span>
+            <span class="px-3.5 py-2 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-accent-300 text-sm font-medium flex items-center gap-2">
+              <i class="fa-solid fa-rotate text-xs"></i> Adaptability
+            </span>
+            <span class="px-3.5 py-2 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-accent-300 text-sm font-medium flex items-center gap-2">
+              <i class="fa-solid fa-users text-xs"></i> Teamwork
+            </span>
+            <span class="px-3.5 py-2 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-accent-300 text-sm font-medium flex items-center gap-2">
+              <i class="fa-solid fa-comments text-xs"></i> Communication
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section id="contact" class="glass-card p-8 rounded-3xl text-center space-y-6 relative overflow-hidden">
+      <div class="max-w-md mx-auto space-y-2">
+        <h2 class="text-2xl font-bold text-white">Mari Terhubung!</h2>
+        <p class="text-slate-400 text-sm">
+          Terbuka untuk diskusi proyek rekayasa elektro, kolaborasi organisasi, maupun peluang karir professional.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="mailto:muhilham2006nay@gmail.com" class="px-6 py-3 rounded-xl gradient-bg text-slate-950 font-bold text-sm shadow-lg shadow-sky-500/20 hover:scale-105 transition-all flex items-center gap-2">
+          <i class="fa-solid fa-envelope"></i> muhilham2006nay@gmail.com
+        </a>
+        <a href="https://wa.me/6287735347799" target="_blank" class="px-6 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold text-sm hover:bg-emerald-500/20 hover:scale-105 transition-all flex items-center gap-2">
+          <i class="fa-brands fa-whatsapp"></i> +62 877-3534-7799
+        </a>
+        <a href="https://linkedin.com/in/muhamad-ilham-saputra-bbb315316" target="_blank" class="px-6 py-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 font-bold text-sm hover:bg-slate-700 hover:scale-105 transition-all flex items-center gap-2">
+          <i class="fa-brands fa-linkedin text-brand-400"></i> LinkedIn Profile
+        </a>
+      </div>
+
+      <div class="pt-6 border-t border-slate-800 text-xs text-slate-500">
+        © Muhamad Ilham Saputra. Built with Tailwind CSS & GitHub Pages.
+      </div>
+    </section>
+
+  </main>
 
 </body>
 </html>
