@@ -1,330 +1,279 @@
 <!DOCTYPE html>
-<html lang="id" class="dark">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muhamad Ilham Saputra - Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brand: { 400: '#38bdf8', 500: '#0ea5e9' },
-            accent: { 400: '#818cf8', 500: '#6366f1' }
-          }
-        }
-      }
-    }
-  </script>
+  <title>Portofolio & Transkrip Akademik - Muhamad Ilham Saputra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
-    .glass-card {
-      background: rgba(30, 41, 59, 0.7);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    .gradient-bg {
-      background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      line-height: 1.5;
     }
-    .grid-pattern {
-      background-image: radial-gradient(rgba(56, 189, 248, 0.1) 1px, transparent 1px);
-      background-size: 24px 24px;
+
+    /* Container Utama Website */
+    .main-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
     }
+
+    /* Modul Transkrip */
+    .transcript-card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+      padding: 2.5rem;
+      border: 1px solid #e2e8f0;
+      margin-top: 2rem;
+    }
+
+    .transcript-header {
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .transcript-header h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: -0.025em;
+    }
+
+    .transcript-header .subtitle {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-top: 0.35rem;
+    }
+
+    .student-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      background: #f1f5f9;
+      padding: 1.25rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .info-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .stats-container {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-box {
+      flex: 1;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .stat-box.highlight {
+      background: #eff6ff;
+      border-color: #93c5fd;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #1e3a8a;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: #475569;
+      font-weight: 500;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    .transcript-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    .transcript-table th {
+      background-color: #f8fafc;
+      color: #475569;
+      font-weight: 600;
+      padding: 0.75rem 1rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .transcript-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #f1f5f9;
+      color: #334155;
+    }
+
+    .transcript-table tbody tr:hover {
+      background-color: #f8fafc;
+    }
+
+    /* Badges Nilai */
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    .grade-a { background: #dcfce7; color: #15803d; }
+    .grade-a-minus { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+    .grade-ab { background: #e0f2fe; color: #0369a1; }
+    .grade-b-plus { background: #fef9c3; color: #a16207; }
+    .grade-b { background: #fef3c7; color: #b45309; }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen relative grid-pattern overflow-x-hidden">
+<body>
 
-  <!-- Ambient Glow Background -->
-  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-sky-500/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
-
-  <!-- Navbar -->
-  <nav class="fixed top-0 left-0 right-0 z-50 px-4 py-4 backdrop-blur-md bg-slate-950/60 border-b border-slate-800/50">
-    <div class="max-w-4xl mx-auto flex justify-between items-center">
-      <a href="#" class="font-bold text-lg tracking-tight flex items-center gap-2">
-        <span class="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center text-slate-950 font-black text-sm">MIS</span>
-        <span class="hidden sm:inline text-slate-200">Muhamad Ilham</span>
-      </a>
-      <div class="flex items-center gap-4 text-sm font-medium">
-        <a href="#about" class="hover:text-brand-400 transition-colors">Tentang</a>
-        <a href="#experience" class="hover:text-brand-400 transition-colors">Pengalaman</a>
-        <a href="#skills" class="hover:text-brand-400 transition-colors">Keahlian</a>
-        <a href="#contact" class="hover:text-brand-400 transition-colors">Kontak</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Container Utama -->
-  <main class="max-w-4xl mx-auto px-4 pt-28 pb-16 space-y-12">
-
-    <!-- HERO SECTION -->
-    <section id="about" class="glass-card rounded-3xl p-8 sm:p-10 relative overflow-hidden shadow-2xl">
-      <div class="flex flex-col md:flex-row items-center gap-8 relative z-10">
-        <!-- Avatar -->
-        <div class="relative group">
-          <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-full gradient-bg p-1 shadow-lg shadow-sky-500/20">
-            <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-3xl font-black text-slate-100 group-hover:scale-95 transition-transform duration-300">
-              MIS
-            </div>
-          </div>
-          <span class="absolute bottom-2 right-2 w-5 h-5 bg-emerald-500 border-4 border-slate-900 rounded-full" title="Active Student"></span>
+  <main class="main-wrapper">
+    
+    <!-- BAGIAN TRANSKRIP AKADEMIK -->
+    <section id="transcript" class="transcript-section">
+      <div class="transcript-card">
+        <div class="transcript-header">
+          <h2>TRANSKRIP SEMENTARA ACADEMIC RECORD</h2>
+          <p class="subtitle">Semester Genap 2025/2026 | Universitas Gadjah Mada - Sekolah Vokasi</p>
         </div>
 
-        <!-- Detail Bio -->
-        <div class="text-center md:text-left space-y-3 flex-1">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-brand-400 text-xs font-semibold">
-            <i class="fa-solid fa-bolt text-xs"></i> Electrical Engineering Technology
+        <!-- Detail Informasi Mahasiswa -->
+        <div class="student-info-grid">
+          <div class="info-item">
+            <span class="info-label">Nama Mahasiswa</span>
+            <span class="info-value">MUHAMAD ILHAM SAPUTRA</span>
           </div>
-          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-            Muhamad Ilham Saputra
-          </h1>
-          <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
-            Mahasiswa <strong class="text-slate-200">Teknik Elektro UGM</strong> yang berfokus pada rekayasa terapan, teknologi kelistrikan, serta pengaplikasian solusi teknis yang adaptif dan efisien.
-          </p>
-          
-          <div class="pt-2 flex flex-wrap justify-center md:justify-start gap-4 text-xs text-slate-400">
-            <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-brand-400"></i> Klaten / Yogyakarta</span>
-            <span class="flex items-center gap-1.5"><i class="fa-solid fa-graduation-cap text-accent-400"></i> Universitas Gadjah Mada</span>
-            <span class="flex items-center gap-1.5"><i class="fa-solid fa-star text-amber-400"></i> IPK 3.56</span>
+          <div class="info-item">
+            <span class="info-label">NIM</span>
+            <span class="info-value">24/535158/SV/24162</span>
           </div>
-        </div>
-      </div>
-
-      <!-- Action Buttons -->
-      <div class="mt-8 pt-6 border-t border-slate-800/80 flex flex-wrap gap-3 justify-center md:justify-start">
-        <a href="#contact" class="px-5 py-2.5 rounded-xl gradient-bg text-slate-950 font-bold text-sm hover:opacity-90 transition-all shadow-lg shadow-sky-500/25 flex items-center gap-2">
-          <i class="fa-solid fa-paper-plane"></i> Hubungi Saya
-        </a>
-        <a href="https://linkedin.com/in/muhamad-ilham-saputra-bbb315316" target="_blank" class="px-5 py-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-200 font-semibold text-sm transition-all border border-slate-700 flex items-center gap-2">
-          <i class="fa-brands fa-linkedin text-brand-400"></i> LinkedIn
-        </a>
-        <a href="mailto:muhilham2006nay@gmail.com" class="px-5 py-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-200 font-semibold text-sm transition-all border border-slate-700 flex items-center gap-2">
-          <i class="fa-solid fa-envelope text-accent-400"></i> Email
-        </a>
-      </div>
-    </section>
-
-    <!-- HIGHLIGHT STATS -->
-    <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="glass-card p-5 rounded-2xl text-center border-l-4 border-l-sky-400">
-        <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">IPK Kumulatif</p>
-        <p class="text-2xl font-black text-white mt-1">3.56 <span class="text-xs font-normal text-slate-400">/ 4.00</span></p>
-      </div>
-      <div class="glass-card p-5 rounded-2xl text-center border-l-4 border-l-indigo-400">
-        <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">SMA Rata-Rata</p>
-        <p class="text-2xl font-black text-white mt-1">89.45</p>
-      </div>
-      <div class="glass-card p-5 rounded-2xl text-center border-l-4 border-l-emerald-400">
-        <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Organisasi</p>
-        <p class="text-2xl font-black text-white mt-1">HMTE UGM</p>
-      </div>
-      <div class="glass-card p-5 rounded-2xl text-center border-l-4 border-l-amber-400">
-        <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Kepanitiaan</p>
-        <p class="text-2xl font-black text-white mt-1">3+ Event</p>
-      </div>
-    </section>
-
-    <!-- PENDIDIKAN -->
-    <section class="space-y-4">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-brand-400">
-          <i class="fa-solid fa-graduation-cap text-lg"></i>
-        </div>
-        <h2 class="text-xl font-bold text-white tracking-tight">Riwayat Pendidikan</h2>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-4">
-        <!-- UGM -->
-        <div class="glass-card p-6 rounded-2xl space-y-3 relative overflow-hidden group hover:border-sky-500/50 transition-colors">
-          <div class="flex justify-between items-start">
-            <div>
-              <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider">Perguruan Tinggi</span>
-              <h3 class="text-lg font-bold text-white mt-0.5">Universitas Gadjah Mada</h3>
-            </div>
-            <span class="text-xs px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 font-medium border border-slate-700">2024 - Sekarang</span>
+          <div class="info-item">
+            <span class="info-label">Program Studi</span>
+            <span class="info-value">D4 TEKNOLOGI REKAYASA ELEKTRO</span>
           </div>
-          <p class="text-sm text-slate-300">Teknologi Rekayasa Elektro (Electrical Engineering Technology)</p>
-          <div class="pt-2 flex items-center gap-2">
-            <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">IPK: 3.56</span>
-            <span class="text-xs text-slate-400">Sekolah Vokasi UGM</span>
+          <div class="info-item">
+            <span class="info-label">Dosen Pembimbing (DPA)</span>
+            <span class="info-value">Ir. Lukman Subekti, MT.</span>
           </div>
         </div>
 
-        <!-- SMA -->
-        <div class="glass-card p-6 rounded-2xl space-y-3 relative overflow-hidden group hover:border-indigo-500/50 transition-colors">
-          <div class="flex justify-between items-start">
-            <div>
-              <span class="text-xs font-semibold text-accent-400 uppercase tracking-wider">Sekolah Menengah Atas</span>
-              <h3 class="text-lg font-bold text-white mt-0.5">SMAN 1 Cawas</h3>
-            </div>
-            <span class="text-xs px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 font-medium border border-slate-700">2021 - 2024</span>
+        <!-- Ringkasan Statistik -->
+        <div class="stats-container">
+          <div class="stat-box">
+            <span class="stat-number">82</span>
+            <span class="stat-label">Total SKS Diambil</span>
           </div>
-          <p class="text-sm text-slate-300">Matematika & Ilmu Pengetahuan Alam (MIPA)</p>
-          <div class="pt-2 flex items-center gap-2">
-            <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-sky-500/10 text-brand-400 border border-sky-500/20">Nilai Rata-Rata: 89.45</span>
-            <span class="text-xs text-slate-400">Klaten, Jawa Tengah</span>
+          <div class="stat-box highlight">
+            <span class="stat-number">3.67</span>
+            <span class="stat-label">IPK (Kumulatif)</span>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PENGALAMAN -->
-    <section id="experience" class="space-y-6">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-accent-400">
-          <i class="fa-solid fa-briefcase text-lg"></i>
-        </div>
-        <h2 class="text-xl font-bold text-white tracking-tight">Pengalaman Organisasi & Kepanitiaan</h2>
-      </div>
-
-      <div class="space-y-4">
-        <!-- HMTI -->
-        <div class="glass-card p-6 rounded-2xl space-y-3 hover:border-slate-700 transition-all">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-            <div>
-              <h3 class="text-base font-bold text-white">Staff Divisi IPTEK</h3>
-              <p class="text-xs text-brand-400 font-medium">Himpunan Mahasiswa Teknik Elektro UGM</p>
-            </div>
-            <span class="text-xs px-3 py-1 rounded-full bg-sky-500/10 text-brand-400 border border-sky-500/20 font-medium self-start sm:self-auto">2024 - Sekarang</span>
-          </div>
-          <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside pt-1">
-            <li>Menyelenggarakan sesi pengajaran IPTEK untuk membantu persiapan ujian akademis mahasiswa.</li>
-            <li>Membuat dan mengelola papan buletin informasi IPTEK secara berkala.</li>
-          </ul>
-        </div>
-
-        <!-- Pionir Permadani -->
-        <div class="glass-card p-6 rounded-2xl space-y-3 hover:border-slate-700 transition-all">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-            <div>
-              <h3 class="text-base font-bold text-white">Koordinator Divisi Perlengkapan</h3>
-              <p class="text-xs text-accent-400 font-medium">Pionir Permadani 2025</p>
-            </div>
-            <span class="text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700 font-medium self-start sm:self-auto">2025</span>
-          </div>
-          <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside pt-1">
-            <li>Mengkoordinasikan dan memetakan seluruh kebutuhan logistik serta peralatan antar divisi.</li>
-            <li>Memastikan kelengkapan teknis dan operasional berjalan tanpa hambatan selama pelaksanaan event.</li>
-          </ul>
-        </div>
-
-        <!-- Temu Alumni -->
-        <div class="glass-card p-6 rounded-2xl space-y-3 hover:border-slate-700 transition-all">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-            <div>
-              <h3 class="text-base font-bold text-white">Staff Public Relations (Humas)</h3>
-              <p class="text-xs text-brand-400 font-medium">Temu Alumni 2025 - Sekolah Vokasi UGM</p>
-            </div>
-            <span class="text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700 font-medium self-start sm:self-auto">2025</span>
-          </div>
-          <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside pt-1">
-            <li>Mendistribusikan undangan resmi ke jajaran dosen serta mengonfirmasi kehadiran tamu VVIP.</li>
-            <li>Mengelola alur komunikasi internal panitia dengan eksternal secara profesional.</li>
-          </ul>
-        </div>
-
-        <!-- TGES DTEDI -->
-        <div class="glass-card p-6 rounded-2xl space-y-3 hover:border-slate-700 transition-all">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-            <div>
-              <h3 class="text-base font-bold text-white">Staff Logistik</h3>
-              <p class="text-xs text-accent-400 font-medium">TGES DTEDI 2025 - Sekolah Vokasi UGM</p>
-            </div>
-            <span class="text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700 font-medium self-start sm:self-auto">2025</span>
-          </div>
-          <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside pt-1">
-            <li>Memastikan ketersediaan dan distribusi konsumsi serta perlengkapan teknis acara.</li>
-            <li>Melakukan koordinasi intensif dengan divisi operasional untuk menjaga efisiensi acara.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- KEAHLIAN -->
-    <section id="skills" class="space-y-6">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
-          <i class="fa-solid fa-code text-lg"></i>
-        </div>
-        <h2 class="text-xl font-bold text-white tracking-tight">Keahlian & Kompetensi</h2>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-6">
-        <!-- Hard Skills -->
-        <div class="glass-card p-6 rounded-2xl space-y-4">
-          <h3 class="text-sm font-bold uppercase tracking-wider text-brand-400 flex items-center gap-2">
-            <i class="fa-solid fa-laptop-code"></i> Technical / Hard Skills
-          </h3>
-          <div class="grid grid-cols-2 gap-3">
-            <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60 flex items-center gap-3">
-              <i class="fa-solid fa-pen-nib text-brand-400 text-lg"></i>
-              <span class="text-sm font-medium text-slate-200">Canva</span>
-            </div>
-            <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60 flex items-center gap-3">
-              <i class="fa-solid fa-compass-drafting text-accent-400 text-lg"></i>
-              <span class="text-sm font-medium text-slate-200">AutoCAD</span>
-            </div>
-            <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60 flex items-center gap-3">
-              <i class="fa-solid fa-file-excel text-emerald-400 text-lg"></i>
-              <span class="text-sm font-medium text-slate-200">Microsoft Excel</span>
-            </div>
-            <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60 flex items-center gap-3">
-              <i class="fa-solid fa-file-word text-blue-400 text-lg"></i>
-              <span class="text-sm font-medium text-slate-200">Microsoft Word</span>
-            </div>
+          <div class="stat-box">
+            <span class="stat-number">3.62</span>
+            <span class="stat-label">IPS (Semester Ini)</span>
           </div>
         </div>
 
-        <!-- Soft Skills -->
-        <div class="glass-card p-6 rounded-2xl space-y-4">
-          <h3 class="text-sm font-bold uppercase tracking-wider text-accent-400 flex items-center gap-2">
-            <i class="fa-solid fa-user-check"></i> Soft Skills
-          </h3>
-          <div class="flex flex-wrap gap-2 pt-1">
-            <span class="px-3.5 py-2 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-accent-300 text-sm font-medium flex items-center gap-2">
-              <i class="fa-solid fa-puzzle-piece text-xs"></i> Problem Solving
-            </span>
-            <span class="px-3.5 py-2 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-accent-300 text-sm font-medium flex items-center gap-2">
-              <i class="fa-solid fa-rotate text-xs"></i> Adaptability
-            </span>
-            <span class="px-3.5 py-2 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-accent-300 text-sm font-medium flex items-center gap-2">
-              <i class="fa-solid fa-users text-xs"></i> Teamwork
-            </span>
-            <span class="px-3.5 py-2 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-accent-300 text-sm font-medium flex items-center gap-2">
-              <i class="fa-solid fa-comments text-xs"></i> Communication
-            </span>
-          </div>
+        <!-- Tabel Daftar Mata Kuliah -->
+        <div class="table-responsive">
+          <table class="transcript-table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Kode</th>
+                <th>Mata Kuliah & Kelas</th>
+                <th>SKS</th>
+                <th>Jenis</th>
+                <th>Nilai</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>SVRE214101</td><td>Aljabar Vektor dan Matrik (RE1AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-b">B</span></td></tr>
+              <tr><td>2</td><td>SVRE214102</td><td>Matematika Teknik 1 (RE1AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-b">B</span></td></tr>
+              <tr><td>3</td><td>SVRE214103</td><td>Bahasa Inggris I (RE1AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-b-plus">B+</span></td></tr>
+              <tr><td>4</td><td>SVRE214105</td><td>Fisika Listrik dan Magnet (RE1AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-b">B</span></td></tr>
+              <tr><td>5</td><td>SVRE214106</td><td>Keselamatan Ketenagalistrikan (RE1AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a">A</span></td></tr>
+              <tr><td>6</td><td>SVRE214107</td><td>Rangkaian Listrik DC (RE1AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a-minus">A-</span></td></tr>
+              <tr><td>7</td><td>SVRE214108</td><td>Praktikum Alat Ukur Listrik (RE1A1)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-b">B</span></td></tr>
+              <tr><td>8</td><td>SVRE214110</td><td>Praktikum Gambar Teknik 1 (RE1A1)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a">A</span></td></tr>
+              <tr><td>9</td><td>SVRE214111</td><td>Teknik Elektronika (RE1AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a-minus">A-</span></td></tr>
+              <tr><td>10</td><td>SVRE214112</td><td>Praktikum Teknik Elektronika (RE1A1)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a-minus">A-</span></td></tr>
+              <tr><td>11</td><td>SVRE214203</td><td>Matematika Teknik 2 (RE2AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a-minus">A-</span></td></tr>
+              <tr><td>12</td><td>SVRE214302</td><td>Mesin Listrik 1 (RE2AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a">A</span></td></tr>
+              <tr><td>13</td><td>SVRE214204</td><td>Rangkaian Listrik AC (RE2AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-b-plus">B+</span></td></tr>
+              <tr><td>14</td><td>SVRE214205</td><td>Teknik Instalasi Listrik Penerangan (RE2AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a-minus">A-</span></td></tr>
+              <tr><td>15</td><td>SVRE214306</td><td>Teknik Tenaga Listrik (RE2AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a">A</span></td></tr>
+              <tr><td>16</td><td>SVRE214213</td><td>Praktikum Teknik Instalasi Listrik Penerangan (RE2A1)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a-minus">A-</span></td></tr>
+              <tr><td>17</td><td>SVRE214207</td><td>Praktikum Kerja Bengkel 1 (RE2A1)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-ab">A/B</span></td></tr>
+              <tr><td>18</td><td>SVRE214210</td><td>Praktikum Gambar Teknik 2 (RE2A1)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-ab">A/B</span></td></tr>
+              <tr><td>19</td><td>SVRE214209</td><td>Praktikum Rangkaian Listrik (RE2A1)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-ab">A/B</span></td></tr>
+              <tr><td>20</td><td>SVRE214208</td><td>Praktikum Pemrograman Komputer (RE2A1)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a-minus">A-</span></td></tr>
+              <tr><td>21</td><td>SVRE214201</td><td>Bahasa Inggris 2 (RE2AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-ab">A/B</span></td></tr>
+              <tr><td>22</td><td>SVRE214411</td><td>Mesin Listrik 2 (RE3AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a">A</span></td></tr>
+              <tr><td>23</td><td>SVRE214305</td><td>Teknik Instalasi Listrik Industri (RE3AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a">A</span></td></tr>
+              <tr><td>24</td><td>SVRE214402</td><td>Distribusi Tenaga Listrik (RE3AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a">A</span></td></tr>
+              <tr><td>25</td><td>SVRE214405</td><td>Teknik Proteksi Tenaga Listrik (RE3AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a">A</span></td></tr>
+              <tr><td>26</td><td>SVRE214505</td><td>Kapita Selekta (RE3AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a">A</span></td></tr>
+              <tr><td>27</td><td>SVRE214314</td><td>Praktikum Mesin-mesin Listrik (RE3A1)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a">A</span></td></tr>
+              <tr><td>28</td><td>SVRE214310</td><td>Praktikum Teknik Instalasi Tenaga Listrik (RE3A1)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a">A</span></td></tr>
+              <tr><td>29</td><td>SVRE214307</td><td>Praktikum Kerja Bengkel II (RE3A1)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a-minus">A-</span></td></tr>
+              <tr><td>30</td><td>SVRE214308</td><td>Praktikum Mikrokontroler (RE3A1)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a">A</span></td></tr>
+              <tr><td>31</td><td>SVRE214407</td><td>Praktikum Distribusi Tenaga Listrik (RE3A1)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a-minus">A-</span></td></tr>
+              <tr><td>32</td><td>SVRE214403</td><td>Elektronika Daya (RE4AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-ab">A/B</span></td></tr>
+              <tr><td>33</td><td>SVRE214413</td><td>Transmisi Gardu Induk (RE4AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-b-plus">B+</span></td></tr>
+              <tr><td>34</td><td>SVRE214417</td><td>Teknik Kendali (RE4AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-b-plus">B+</span></td></tr>
+              <tr><td>35</td><td>SVRE214418</td><td>Analisis Sistem Tenaga Listrik (RE4AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-ab">A/B</span></td></tr>
+              <tr><td>36</td><td>SVRE214506</td><td>Etika Profesi (RE4AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a">A</span></td></tr>
+              <tr><td>37</td><td>SVRE214601</td><td>Ide Kreatif dan Kewirausahaan (RE4AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a">A</span></td></tr>
+              <tr><td>38</td><td>SVRE214409</td><td>Praktikum Otomasi Industri (RE4A1)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-b-plus">B+</span></td></tr>
+              <tr><td>39</td><td>SVRE214415</td><td>Praktikum Sistem Proteksi Tenaga Listrik (RE4A1)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-ab">A/B</span></td></tr>
+              <tr><td>40</td><td>SVRE214416</td><td>Praktikum Audit Energi (RE4A1)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a">A</span></td></tr>
+              <tr><td>41</td><td>SVRE214404</td><td>Sistem Pembangkit (RE4AA)</td><td>2.00</td><td>Wajib</td><td><span class="badge grade-a">A</span></td></tr>
+            </tbody>
+          </table>
         </div>
-      </div>
-    </section>
-
-    <!-- KONTAK -->
-    <section id="contact" class="glass-card p-8 rounded-3xl text-center space-y-6 relative overflow-hidden">
-      <div class="max-w-md mx-auto space-y-2">
-        <h2 class="text-2xl font-bold text-white">Mari Terhubung!</h2>
-        <p class="text-slate-400 text-sm">
-          Terbuka untuk diskusi proyek rekayasa elektro, kolaborasi organisasi, maupun peluang karir professional.
-        </p>
-      </div>
-
-      <div class="flex flex-wrap justify-center gap-3">
-        <a href="mailto:muhilham2006nay@gmail.com" class="px-6 py-3 rounded-xl gradient-bg text-slate-950 font-bold text-sm shadow-lg shadow-sky-500/20 hover:scale-105 transition-all flex items-center gap-2">
-          <i class="fa-solid fa-envelope"></i> muhilham2006nay@gmail.com
-        </a>
-        <a href="https://wa.me/6287735347799" target="_blank" class="px-6 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold text-sm hover:bg-emerald-500/20 hover:scale-105 transition-all flex items-center gap-2">
-          <i class="fa-brands fa-whatsapp"></i> +62 877-3534-7799
-        </a>
-        <a href="https://linkedin.com/in/muhamad-ilham-saputra-bbb315316" target="_blank" class="px-6 py-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 font-bold text-sm hover:bg-slate-700 hover:scale-105 transition-all flex items-center gap-2">
-          <i class="fa-brands fa-linkedin text-brand-400"></i> LinkedIn Profile
-        </a>
-      </div>
-
-      <div class="pt-6 border-t border-slate-800 text-xs text-slate-500">
-        © Muhamad Ilham Saputra. Built with Tailwind CSS & GitHub Pages.
       </div>
     </section>
 
